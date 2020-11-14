@@ -6,12 +6,14 @@ const { queryInterface } = sequelize
 beforeAll(() => {
     const email = 'welly@gmail.com'
     const password = 12345
+    const role = 'admin'
 
     queryInterface.bulkInsert('Users', [{
         email,
-        password,
+        password, 
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        role,
     }])
     .then(result => {
         console.log('sukses')
@@ -25,7 +27,7 @@ beforeAll(() => {
 describe('Test endpoint POST signIn', () => {
     it('Test signIn success', (done) => {
         request(app)
-        .post('/signIn')
+        .post('/users/signIn')
         .send({
             email: 'welly@gmail.com',
             password: '12345'
@@ -45,7 +47,7 @@ describe('Test endpoint POST signIn', () => {
 
     it('Wrong Email', (done) => {
         request(app)
-        .post('/signIn')
+        .post('/users/signIn')
         .send({
             email: 'wly@gmail.com',
             password: '12345'
@@ -64,7 +66,7 @@ describe('Test endpoint POST signIn', () => {
 
     it('Wrong Password', (done) => {
         request(app)
-        .post('/signIn')
+        .post('/users/signIn')
         .send({
             email: 'welly@gmail.com',
             password: '123askda'
@@ -82,7 +84,7 @@ describe('Test endpoint POST signIn', () => {
 
     it('No Email/Password inserted', (done) => {
         request(app)
-        .post('/signIn')
+        .post('/users/signIn')
         .send({
             email: null,
             password: null

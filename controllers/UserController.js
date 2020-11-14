@@ -20,7 +20,7 @@ class UserController {
                     throw {msg: 'email/password is invalid'}
                 }
                 else{
-                    const access_token = generateToken({ email: result.email })
+                    const access_token = generateToken({ email: result.email, role: result.role })
                     console.log(access_token)
                     res.status(200).json({access_token})
                 }

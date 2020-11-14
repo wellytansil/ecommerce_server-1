@@ -53,6 +53,11 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           args: true,
           msg: 'price should not be empty'
+        },
+        isPositive(value) {
+          if(value && value <= 0){
+            throw new Error('price should be greater than 0')
+          }
         }
       }
     },
@@ -67,6 +72,11 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           args: true,
           msg: 'stock should not be empty'
+        },
+        isGreaterThan0(value) {
+          if(value < 1){
+            throw new Error('stock should be at least 1')
+          }
         }
       }
     }

@@ -2,7 +2,7 @@ const { Product } = require('../models');
 
 class ProductController{
 
-    static async create(req, res, next) {
+    static create(req, res, next) {
         const { name, img_url, price, stock } = req.body
         Product
         .create({
@@ -12,25 +12,45 @@ class ProductController{
             stock
         })
         .then(result => {
-            res.status(201).json(result)
+            res.status(201).json({result, msg: 'Successfully created'})
         })
         .catch(err => {
             next(err);
         })
     }
 
-    static async readProducts(req, res, next){
+    static readProducts(req, res, next){
         Product
         .findAll()
         .then(result => {
-            res.status(200).json({msg: 'Read successfully'})
+            res.status(200).json({result, msg: 'Read successfully'})
         })
         .catch(err => {
             next(err)
         })
     }
 
-    static async updateProduct(req, res, next){
+    static readProductById(req, res, next) {
+        console.log('hai')
+        console.log(req.params.id)
+        const id = req.params.id
+        console.log(id)
+        Product
+        .findAll({
+            where: {
+                id
+            }
+        })
+        .then(result => {
+            res.status(200).json({result, msg: 'Read successfully'})
+        })
+        .catch(err => {
+            next(err)
+        })
+    }
+
+    static updateProduct(req, res, next){
+        console.log('hai')
         const { name, img_url, price, stock } = req.body
         const id = req.params.id
 
