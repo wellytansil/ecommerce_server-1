@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(router)
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).json('HALO')
 })
 
