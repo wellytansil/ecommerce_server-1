@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(router)
 
+app.use('/', (req, res) => {
+    res.status(200).json('HALO')
+})
+
 app.use(errorHandler)
 
 
