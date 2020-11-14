@@ -13,11 +13,11 @@ class UserController {
                 }
             })
             if(!result){
-                throw {msg: 'email/password is invalid'}
+                throw {msg: 'email/password is invalid', status: 401}
             }
             else {
                 if(password != result.password){
-                    throw {msg: 'email/password is invalid'}
+                    throw {msg: 'email/password is invalid', status: 401}
                 }
                 else{
                     const access_token = generateToken({ email: result.email, role: result.role })

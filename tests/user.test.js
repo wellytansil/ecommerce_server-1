@@ -55,7 +55,7 @@ describe('Test endpoint POST signIn', () => {
         .then(response => {
             const { body, status } = response
 
-            expect(status).toEqual(500)
+            expect(status).toEqual(401)
             expect(body).toEqual('email/password is invalid')
             done()
         })
@@ -73,7 +73,7 @@ describe('Test endpoint POST signIn', () => {
         })
         .then(response => {
             const { body, status } = response
-            expect(status).toEqual(500)
+            expect(status).toEqual(401)
             expect(body).toEqual('email/password is invalid')
             done()
         })
@@ -92,7 +92,7 @@ describe('Test endpoint POST signIn', () => {
         .then(response => {
             const { body, status } = response
 
-            expect(status).toEqual(500)
+            expect(status).toEqual(401)
             expect(body).toEqual('email/password is invalid')
             done()
         })
