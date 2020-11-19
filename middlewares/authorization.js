@@ -10,7 +10,7 @@ async function authorization(req, res, next) {
                 id: id
             }
         })
-
+        
         if(result.length == 0){
             throw {msg: 'Product Not Found', status: 401}
         } else {
