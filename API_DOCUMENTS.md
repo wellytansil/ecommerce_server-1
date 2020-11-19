@@ -1,3 +1,48 @@
+**SIGN UP**
+----
+  return email registered
+
+* **Data Headers**
+
+  NONE
+
+* **URL**
+
+  /users/signUp
+
+* **Method:**
+
+  `POST`
+  
+* **URL Params**
+
+  NONE
+
+* **Data Params**
+
+  `email=[string]`,
+  `password=[string]`
+
+* **Success Response:**
+
+  * **Code:** 201 <br />
+    **Content:** `{
+    {
+    "email": "hendi@mail.co"
+    }
+ 
+* **Error Response:**
+
+  * **Code:** 401 <br />
+    **Content:** `email should not be empty or password should not be empty`
+
+  OR
+
+  * **Code:** 500 <br />
+    **Content:** `internal server error`
+
+------------------------------------------------------------
+
 **SIGN IN**
 ----
   return access_token
@@ -272,7 +317,7 @@
 
 ------------------------------------------------------------
 
-**DELETE TODO**
+**DELETE PRODUCT**
 ----
   return message to indicate your successfully deleting data
 
@@ -315,6 +360,261 @@
 
   * **Code:** 401 <br />
     **Content:** `Not Authorized`
+
+  OR
+
+  * **Code:** 500 <br />
+    **Content:** `internal server error`
+
+------------------------------------------------------------
+
+**POST CART**
+----
+  return json of data created or updated
+
+* **Data Headers**
+
+  `{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoid2UyeS50YW5zaWxAZ21haWwuY29tIiwiaWF0IjoxNjAzODE3NTQ0fQ.sHZWSmO4t6xp4BiAWrQSXx182foRtMhEVtabHdyoU14"
+  }`
+  
+
+* **URL**
+
+  /carts
+
+* **Method:**
+
+  `POST`
+  
+* **URL Params**
+
+  NONE
+
+* **Data Params**
+
+  NONE
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `{
+    "added": {
+        "id": 35,
+        "ProductId": 8,
+        "UserId": 2,
+        "quantity": 1,
+        "status": false,
+        "updatedAt": "2020-11-19T05:51:44.061Z",
+        "createdAt": "2020-11-19T05:51:44.061Z"
+      }
+    }`
+
+    OR
+
+    `"updatedQuantity": [
+        1,
+        [
+            {
+                "id": 6,
+                "ProductId": 6,
+                "UserId": 2,
+                "quantity": 2,
+                "status": false,
+                "createdAt": "2020-11-18T18:25:25.539Z",
+                "updatedAt": "2020-11-18T18:25:29.801Z"
+            }
+        ]
+      ]
+    }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 <br />
+    **Content:** `Authentication Failed`
+
+  OR
+
+  * **Code:** 500 <br />
+    **Content:** `internal server error`
+
+------------------------------------------------------------
+
+**GET CART**
+----
+  return json of data in the cart and total price
+
+* **Data Headers**
+
+  `{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoid2UyeS50YW5zaWxAZ21haWwuY29tIiwiaWF0IjoxNjAzODE3NTQ0fQ.sHZWSmO4t6xp4BiAWrQSXx182foRtMhEVtabHdyoU14"
+  }`
+  
+
+* **URL**
+
+  /carts
+
+* **Method:**
+
+  `GET`
+  
+* **URL Params**
+
+  NONE
+
+* **Data Params**
+
+  NONE
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `{
+    "carts": [
+        {
+            "id": 35,
+            "ProductId": 8,
+            "UserId": 2,
+            "quantity": 1,
+            "status": false,
+            "createdAt": "2020-11-19T05:51:44.061Z",
+            "updatedAt": "2020-11-19T05:51:44.061Z",
+            "Product": {
+                "id": 8,
+                "name": "askamda",
+                "img_url": "daada",
+                "price": 10000,
+                "stock": 7,
+                "createdAt": "2020-11-14T08:55:48.683Z",
+                "updatedAt": "2020-11-19T04:30:23.181Z"
+            }
+        }
+    ],
+    "total": 10000
+    }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 <br />
+    **Content:** `Authentication Failed`
+
+  OR
+
+  * **Code:** 500 <br />
+    **Content:** `internal server error`
+
+------------------------------------------------------------
+
+**PATCH CART STATUS**
+----
+  return updated data
+
+* **Data Headers**
+
+  `{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoid2UyeS50YW5zaWxAZ21haWwuY29tIiwiaWF0IjoxNjAzODE3NTQ0fQ.sHZWSmO4t6xp4BiAWrQSXx182foRtMhEVtabHdyoU14"
+  }`
+  
+
+* **URL**
+
+  /carts
+
+* **Method:**
+
+  `PATCH`
+  
+* **URL Params**
+
+  NONE
+
+* **Data Params**
+
+  NONE
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `
+    "updated": [
+        {
+            "id": 35,
+            "ProductId": 8,
+            "UserId": 2,
+            "quantity": 1,
+            "status": true,
+            "createdAt": "2020-11-19T05:51:44.061Z",
+            "updatedAt": "2020-11-19T05:54:54.711Z",
+            "Product": {
+                "id": 8,
+                "name": "askamda",
+                "img_url": "daada",
+                "price": 10000,
+                "stock": 6,
+                "createdAt": "2020-11-14T08:55:48.683Z",
+                "updatedAt": "2020-11-19T05:54:54.711Z"
+            }
+        }
+    ]
+    }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 <br />
+    **Content:** `Authentication Failed`
+
+  OR
+
+  * **Code:** 500 <br />
+    **Content:** `internal server error`
+
+
+------------------------------------------------------------
+
+**DELETE CART**
+----
+  return deleted data
+
+* **Data Headers**
+
+  `{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoid2UyeS50YW5zaWxAZ21haWwuY29tIiwiaWF0IjoxNjAzODE3NTQ0fQ.sHZWSmO4t6xp4BiAWrQSXx182foRtMhEVtabHdyoU14"
+  }`
+  
+
+* **URL**
+
+  /carts/:id
+
+* **Method:**
+
+  `PATCH`
+  
+* **URL Params**
+
+  `id=[integer]`
+
+* **Data Params**
+
+  NONE
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** 
+    `
+    {
+    "deleted": 0
+  }`
+ 
+* **Error Response:**
+
+  * **Code:** 401 <br />
+    **Content:** `Authentication Failed`,  ` Authorization failed`
 
   OR
 

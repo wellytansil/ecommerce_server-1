@@ -12,7 +12,7 @@ class UserController {
                 email,
                 password
             })
-            res.status(201).json({result})
+            res.status(201).json({email: result.email})
         } 
         catch(err) {
             next(err)
