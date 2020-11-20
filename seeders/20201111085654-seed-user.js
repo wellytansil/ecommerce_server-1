@@ -5,7 +5,8 @@ const { hashingPassword } = require('../helpers/bcrypt')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    const data = [{ email: 'we2y.tansil@gmail.com', password: hashingPassword('12345'), role: 'admin', createdAt: new Date(), updatedAt: new Date() }]
+    const password = hashingPassword('12345')
+    const data = [{ email: 'we2y.tansil@gmail.com', password, role: 'admin', createdAt: new Date(), updatedAt: new Date() }]
     return queryInterface.bulkInsert('Users', data, {})
   },
 
