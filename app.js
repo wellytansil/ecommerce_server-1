@@ -21,10 +21,10 @@ app.get('/', (req, res) => {
 
 app.use(errorHandler)
 
-
+/*
 app.listen(port, () => {
     console.log('listen at http://localhost:' + port)
 })
-
+*/
 
 module.exports = app

@@ -17,6 +17,7 @@ beforeAll((done) => {
     })
     .catch(err => {
         console.log(err)
+        done()
     })
 })
 
@@ -42,6 +43,7 @@ describe('Test endpoint POST create', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
     
@@ -63,6 +65,7 @@ describe('Test endpoint POST create', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
     
@@ -84,6 +87,7 @@ describe('Test endpoint POST create', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -105,6 +109,7 @@ describe('Test endpoint POST create', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -127,6 +132,7 @@ describe('Test endpoint POST create', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })
@@ -150,6 +156,7 @@ describe('Test GET read all products', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -166,6 +173,7 @@ describe('Test GET read all products', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })
@@ -189,6 +197,7 @@ describe('Test GET read all products', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -205,6 +214,7 @@ describe('Test GET read all products', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })
@@ -234,6 +244,7 @@ describe('Test UPDATE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -256,6 +267,7 @@ describe('Test UPDATE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -277,6 +289,7 @@ describe('Test UPDATE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -298,6 +311,7 @@ describe('Test UPDATE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -319,6 +333,7 @@ describe('Test UPDATE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })
@@ -341,6 +356,7 @@ describe('Test DELETE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -357,6 +373,7 @@ describe('Test DELETE product', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })

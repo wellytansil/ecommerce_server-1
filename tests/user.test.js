@@ -17,9 +17,11 @@ beforeAll(() => {
     }])
     .then(result => {
         console.log('sukses')
+        done()
     })
     .catch(err => {
         console.log(err)
+        done()
     })
 })
 
@@ -61,6 +63,7 @@ describe('Test endpoint POST signIn', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -79,6 +82,7 @@ describe('Test endpoint POST signIn', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 
@@ -98,6 +102,7 @@ describe('Test endpoint POST signIn', () => {
         })
         .catch(err => {
             console.log(err)
+            done()
         })
     })
 })
